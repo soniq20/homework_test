@@ -1,32 +1,29 @@
 package org.example;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.*;
-import java.io.IOException;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import  com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static List<PodcastDownloadData> readInput() throws IOException {
-         File myFile = new File("C:\\Users\\SHuma\\IdeaProjects\\HomeWork\\src\\test\\resources\\downloads.txt");
-            Scanner myReader = new Scanner(myFile);
-            List<PodcastDownloadData> readObjects = new ArrayList<>();
+        File myFile = new File("C:\\Users\\SHuma\\IdeaProjects\\HomeWork\\src\\test\\resources\\downloads.txt");
+        Scanner myReader = new Scanner(myFile);
+        List<PodcastDownloadData> readObjects = new ArrayList<>();
 
-            while (myReader.hasNextLine()) {
-                String line = myReader.nextLine();
-                PodcastDownloadData podcastDownloadData = parseJsonEntry(line);
-                readObjects.add(podcastDownloadData);
-            }
-            myReader.close();
+        while (myReader.hasNextLine()) {
+            String line = myReader.nextLine();
+            PodcastDownloadData podcastDownloadData = parseJsonEntry(line);
+            readObjects.add(podcastDownloadData);
+        }
+        myReader.close();
 
-            return readObjects;
+        return readObjects;
     }
 
     private static PodcastDownloadData parseJsonEntry(String line) throws IOException {
@@ -37,7 +34,7 @@ public class Main {
         // System.out.println("json:");
         // System.out.println(data);
 
-        return  data;
+        return data;
     }
 
 
@@ -68,8 +65,8 @@ public class Main {
         Integer max = 0;
         // multiple shows could have same number of downloads
         List<String> showNames = new ArrayList<>();
-        for(Map.Entry<String, Integer> entry : sanFranciscoShowsMap.entrySet()){
-            if(max < entry.getValue()){
+        for (Map.Entry<String, Integer> entry : sanFranciscoShowsMap.entrySet()) {
+            if (max < entry.getValue()) {
                 max = entry.getValue();
                 showNames.clear();
                 showNames.add(entry.getKey());
