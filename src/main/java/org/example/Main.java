@@ -66,14 +66,18 @@ public class Main {
         System.out.println(sanFranciscoShowsMap);
 
         Integer max = 0;
-        String maxDownloadedShow = "";
+        // multiple shows could have same number of downloads
+        List<String> showNames = new ArrayList<>();
         for(Map.Entry<String, Integer> entry : sanFranciscoShowsMap.entrySet()){
-            if(max< entry.getValue()){
+            if(max < entry.getValue()){
                 max = entry.getValue();
-                maxDownloadedShow = entry.getKey();
+                showNames.clear();
+                showNames.add(entry.getKey());
+            } else if (max.equals(entry.getValue())) {
+                showNames.add(entry.getKey());
             }
         }
         System.out.println("The number of most downloaded show is " + max);
-        System.out.println("The most downloaded show is " + maxDownloadedShow);
+        System.out.println("The most downloaded shows is " + showNames);
     }
 }
