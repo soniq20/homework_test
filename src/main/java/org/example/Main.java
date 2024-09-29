@@ -2,7 +2,6 @@ package org.example;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -25,15 +24,10 @@ public class Main {
 
         return readObjects;
     }
-
     private static PodcastDownloadData parseJsonEntry(String line) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         PodcastDownloadData data = mapper.readValue(line, PodcastDownloadData.class);
-
-        // System.out.println("json:");
-        // System.out.println(data);
-
         return data;
     }
 
@@ -42,6 +36,59 @@ public class Main {
         List<PodcastDownloadData> podcastDownloadData = readInput();
 
         findMostPopularShowInSanFrancisco(podcastDownloadData);
+        mostUsedDevice(podcastDownloadData);
+
+    }
+    public static void mostUsedDevice(List<PodcastDownloadData> podcastDownloadData){
+        Integer device1Count = 0;
+        Integer device2Count = 0;
+        Integer device3Count = 0;
+        String device1 = "mobiles & tablets";
+        String device2 = "desktops & laptops";
+        String device3 = "smart speakers";
+        List<String> devicesList = new ArrayList<>();
+        for(PodcastDownloadData podcastDownloadData1 : podcastDownloadData){
+            String device = podcastDownloadData1.getDeviceType();
+            devicesList.add(device);
+
+        }
+        for(String device : devicesList){
+            if("mobiles & tablets".equalsIgnoreCase(device)){
+                device1Count++;
+            } else if ("desktops & laptops".equalsIgnoreCase(device)) {
+                device2Count++;
+            }else device3Count++;
+        }
+        Integer maxDevice=0;
+        String maxDeviceUsed = "";
+        Map<String, Integer> deviceTypesAndValues = new HashMap<>();
+        deviceTypesAndValues.put(device1, device1Count);
+        deviceTypesAndValues.put(device2, device2Count);
+        deviceTypesAndValues.put(device3, device3Count);
+        for(Map.Entry<String, Integer> entry : deviceTypesAndValues.entrySet()){
+            if(maxDevice<entry.getValue()){
+                maxDevice = entry.getValue();
+                maxDeviceUsed = entry.getKey();
+            } else if (maxDevice.equals(entry.getValue())) {
+                maxDeviceUsed= entry.getKey();
+
+            }
+
+        }
+
+        System.out.println("Most used device is " + maxDeviceUsed + " and the number of downloads for this device is " + maxDevice);
+
+    }
+    private static void preroll(List<PodcastDownloadData>podcastDownloadData){
+        Map<String, String>listOfShowsAndIndex = new HashMap<>();
+        for(PodcastDownloadData downloadData : podcastDownloadData){
+            for(PodcastDownloadData data : podcastDownloadData){
+                String showId = data.getDownloadIdentifier().getShowId();
+                String breakIndex = data.getPositionUrlSegments().getAdBreakIndex();
+
+            }
+        }
+
     }
 
     private static void findMostPopularShowInSanFrancisco(List<PodcastDownloadData> podcastDownloadData) {
@@ -74,7 +121,13 @@ public class Main {
                 showNames.add(entry.getKey());
             }
         }
-        System.out.println("The number of most downloaded show is " + max);
+        System.out.println("The number of downloads for the most downloaded show is " + max);
         System.out.println("The most downloaded shows is " + showNames);
+        assert max == 24 : "Well done!";
+        assert showNames.equals("Who Trolled Amber"): "Very well done";;
+
     }
-}
+
+
+        }
+

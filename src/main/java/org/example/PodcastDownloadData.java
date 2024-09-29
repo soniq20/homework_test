@@ -9,6 +9,29 @@ public class PodcastDownloadData {
     String country;
     String city;
     String listenerId;
+    String deviceType;
+
+    @Override
+    public String toString() {
+        return "PodcastDownloadData{" +
+                "downloadIdentifier=" + downloadIdentifier +
+                ", opportunities=" + opportunities +
+                ", agency=" + agency +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", listenerId='" + listenerId + '\'' +
+                ", deviceType='" + deviceType + '\'' +
+                '}';
+    }
+
+    public String getDeviceType() {
+        return deviceType;
+    }
+
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
+    }
+
     public DownloadIdentifier getDownloadIdentifier() {
         return downloadIdentifier;
     }
@@ -51,18 +74,6 @@ public class PodcastDownloadData {
 
     public List<Opportunity> getOpportunities() {
         return opportunities;
-    }
-
-    @Override
-    public String toString() {
-        return "PodcastDownloadData{" +
-                "downloadIdentifier=" + downloadIdentifier +
-                ", opportunities=" + opportunities +
-                ", agency=" + agency +
-                ", country='" + country + '\'' +
-                ", city='" + city + '\'' +
-                ", listenerId='" + listenerId + '\'' +
-                '}';
     }
 
     public void setOpportunities(List<Opportunity> opportunities) {
