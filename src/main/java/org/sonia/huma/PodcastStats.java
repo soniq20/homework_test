@@ -150,7 +150,7 @@ public class PodcastStats {
             listOfShowsAndIndex.put(showId, counter);
         }
         //display them in descending order
-        System.out.println(listOfShowsAndIndex);
+
         result = listOfShowsAndIndex.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue())
@@ -159,6 +159,11 @@ public class PodcastStats {
                                 Map.Entry::getValue,
                                 (oldValue,NewValue)->oldValue,
                                 LinkedHashMap::new));
+        //System.out.println(listOfShowsAndIndex);
+        listOfShowsAndIndex.entrySet()
+                .stream()
+                .sorted((e1,e2)->e2.getValue().compareTo(e1.getValue()))
+                .forEach(entry->System.out.println("Show Id: " + entry.getKey() + ", Preroll Opportunity Number: " + entry.getValue()));
 
         return result;
     }

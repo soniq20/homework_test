@@ -1,13 +1,11 @@
 import org.junit.jupiter.api.Test;
 import org.sonia.huma.PodcastStats;
 import org.sonia.huma.data.MostPopularShowResult;
-import org.sonia.huma.data.MostPrerollShow;
 import org.sonia.huma.data.MostUsedDeviceResult;
 import org.sonia.huma.data.PodcastDownloadData;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,14 +38,14 @@ public class PodcastStatsTest {
     void testPreroll() throws Exception{
         PodcastStats podcastStats = new PodcastStats();
         List<PodcastDownloadData> podcastDownloadData = podcastStats.readInput(FILE);
-        MostPrerollShow result = podcastStats.preroll(podcastDownloadData);
-        LinkedHashMap<String, Integer> resultMap = new LinkedHashMap<>();
-        resultMap.put("Show Id: Stuff You Should Know", 40);
-        resultMap.put("Show Id: Who Trolled Amber", 40);
-        resultMap.put("Show Id: Crime Junkie",30);
-        resultMap.put("Show Id: The Joe Rogan Experience",10);
+        Map<String, Integer> expectedResult = new HashMap<>();
+        Map<String, Integer> result = podcastStats.preroll(podcastDownloadData);
+        expectedResult.put("Stuff You Should Know", 40);
+        expectedResult.put("Who Trolled Amber", 40);
+        expectedResult.put("Crime Junkie",30);
+        expectedResult.put("The Joe Rogan Experience",10);
 
-        assertEquals(resultMap,result);
+        assertEquals(expectedResult,result);
 
 
 
