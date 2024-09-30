@@ -1,4 +1,7 @@
-package org.example;
+package org.sonia.huma.data;
+
+import org.sonia.huma.data.DownloadIdentifier;
+import org.sonia.huma.data.Opportunity;
 
 import java.util.List;
 

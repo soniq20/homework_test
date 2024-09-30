@@ -1,4 +1,4 @@
-package org.example;
+package org.sonia.huma.data;
 
 public class DownloadIdentifier {
     String client;

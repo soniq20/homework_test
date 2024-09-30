@@ -1,4 +1,4 @@
-package org.example;
+package org.sonia.huma.data;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
