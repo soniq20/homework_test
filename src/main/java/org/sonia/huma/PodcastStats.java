@@ -168,46 +168,46 @@ public class PodcastStats {
 
         return result;
     }
-//    public void findWeeklyShows(List<PodcastDownloadData>podcastDownloadData) {
-//        WeeklyShowsResult result = new WeeklyShowsResult();
-//        Map<String, Long> listOfShows = new HashMap<>();
-//        String showId = "";
-//        Long date = null;
-//        Date dateConverted;
-//        List<Long> dates = new ArrayList<>();
-//        for (PodcastDownloadData data : podcastDownloadData) {
-//            showId = data.getDownloadIdentifier().getShowId();
-//            List<Opportunity> opportunitiesList = data.getOpportunities();
-//            for(Opportunity opportunity:opportunitiesList){
-//                date = opportunity.getOriginalEventTime();
-//
-//            }
-//            listOfShows.put(showId, date);
-//            System.out.println(listOfShows);
-//
-//
-//        }
-//        String show1 = "Who Trolled Amber", show2="Crime Junkie", show3 ="Stuff You Should Know", show4="The Joe Rogan Experience";
-//        List<Long>show1List= new ArrayList<>();
-//        List<Long>show2List= new ArrayList<>();
-//        List<Long>show3List= new ArrayList<>();
-//        List<Long>show4List= new ArrayList<>();
-//        for(Map.Entry<String, Long>entry : listOfShows.entrySet()){
-//            if(entry.getKey().equals(show1)){
-//                show1List.add(entry.getValue());
-//            } else if (entry.getKey().equals(show2)) {
-//                show2List.add(entry.getValue());
-//            } else if (entry.getKey().equals(show3)) {
-//                show3List.add(entry.getValue());
-//            }else{
-//                show4List.add(entry.getValue());
-//            }
-//        }
-//        Collections.sort(show1List);
-//        Collections.sort(show2List);
-//        Collections.sort(show3List);
-//        Collections.sort(show4List);
-//
-//
-//    }
+   /* public void findWeeklyShows(List<PodcastDownloadData>podcastDownloadData) {
+        WeeklyShowsResult result = new WeeklyShowsResult();
+        Map<String, Long> listOfShows = new HashMap<>();
+        String showId = "";
+        Long date = null;
+        Date dateConverted;
+        List<Long> dates = new ArrayList<>();
+        for (PodcastDownloadData data : podcastDownloadData) {
+            showId = data.getDownloadIdentifier().getShowId();
+            List<Opportunity> opportunitiesList = data.getOpportunities();
+            for(Opportunity opportunity:opportunitiesList){
+                date = opportunity.getOriginalEventTime();
+
+            }
+            listOfShows.put(showId, date);
+            System.out.println(listOfShows);
+
+
+        }
+        String show1 = "Who Trolled Amber", show2="Crime Junkie", show3 ="Stuff You Should Know", show4="The Joe Rogan Experience";
+        List<Long>show1List= new ArrayList<>();
+        List<Long>show2List= new ArrayList<>();
+        List<Long>show3List= new ArrayList<>();
+        List<Long>show4List= new ArrayList<>();
+        for(Map.Entry<String, Long>entry : listOfShows.entrySet()){
+            if(entry.getKey().equals(show1)){
+                show1List.add(entry.getValue());
+            } else if (entry.getKey().equals(show2)) {
+                show2List.add(entry.getValue());
+            } else if (entry.getKey().equals(show3)) {
+                show3List.add(entry.getValue());
+            }else{
+                show4List.add(entry.getValue());
+            }
+        }
+        Collections.sort(show1List);
+        Collections.sort(show2List);
+        Collections.sort(show3List);
+        Collections.sort(show4List);
+
+
+    }*/
 }
