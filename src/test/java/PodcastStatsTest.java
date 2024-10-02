@@ -13,13 +13,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PodcastStatsTest {
 
-    private static final File FILE = new File(
-            "C:\\Users\\SHuma\\IdeaProjects\\HomeWork\\src\\test\\resources\\downloads.txt");
+    //private static final File FILE = new File(
+         //"C:\\Users\\SHuma\\IdeaProjects\\HomeWork\\src\\test\\resources\\downloads.txt");
+    File file = new File("src/test/resources/downloads.txt");
+    PodcastStats podcastStats = new PodcastStats();
 
     @Test
     void testFindMostPopularShowInSanFrancisco() throws Exception {
-        PodcastStats podcastStats = new PodcastStats();
-        List<PodcastDownloadData> podcastDownloadData = podcastStats.readInput(FILE);
+        //PodcastStats podcastStats = new PodcastStats();
+        List<PodcastDownloadData> podcastDownloadData = podcastStats.readInput(file);
         MostPopularShowResult result = podcastStats.findMostPopularShowInSanFrancisco(podcastDownloadData);
 
         assertEquals(24, result.getMax());
@@ -27,8 +29,8 @@ public class PodcastStatsTest {
     }
     @Test
     void testMostUsedDevice() throws  Exception{
-        PodcastStats podcastStats = new PodcastStats();
-        List<PodcastDownloadData> podcastDownloadData = podcastStats.readInput(FILE);
+       //PodcastStats podcastStats = new PodcastStats();
+        List<PodcastDownloadData> podcastDownloadData = podcastStats.readInput(file);
         MostUsedDeviceResult result = podcastStats.mostUsedDevice(podcastDownloadData);
 
         assertEquals("mobiles & tablets", result.getMaxDeviceUsed());
@@ -36,8 +38,8 @@ public class PodcastStatsTest {
     }
     @Test
     void testPreroll() throws Exception{
-        PodcastStats podcastStats = new PodcastStats();
-        List<PodcastDownloadData> podcastDownloadData = podcastStats.readInput(FILE);
+        //PodcastStats podcastStats = new PodcastStats();
+        List<PodcastDownloadData> podcastDownloadData = podcastStats.readInput(file);
         Map<String, Integer> expectedResult = new HashMap<>();
         Map<String, Integer> result = podcastStats.preroll(podcastDownloadData);
         expectedResult.put("Stuff You Should Know", 40);
