@@ -1,8 +1,19 @@
 package org.sonia.huma.data;
 
+import java.util.Date;
+
 public class Opportunity {
+    public Long getOriginalEventTime() {
+        return originalEventTime;
+    }
+
+    public void setOriginalEventTime(Long originalEventTime) {
+        this.originalEventTime = originalEventTime;
+    }
+
     Long originalEventTime;
     PositionUrlSegments positionUrlSegments;
+
 
     @Override
     public String toString() {
@@ -13,13 +24,8 @@ public class Opportunity {
     }
 
 
-    public void setOriginalEventTime(Long originalEventTime) {
-        this.originalEventTime = originalEventTime;
-    }
 
-    public Long getOriginalEventTime() {
-        return this.originalEventTime;
-    }
+
 
     public PositionUrlSegments getPositionUrlSegments() {
         return positionUrlSegments;
